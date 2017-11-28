@@ -25,7 +25,30 @@ Park.prototype = {
       }
     }
     return fertileDinosaurs;
-  }
+  },
+
+  howManyDinosAfter: function(years) {
+    let dinoKids = {};
+    for (let dinosaur of this.enclosure) {
+      if (dinoKids.hasOwnProperty(dinosaur.offspring)) {
+        dinoKids[dinosaur.offspring]++;
+      } else {
+        dinoKids[dinosaur.offspring] = 1;
+      }
+    }
+
+    for (let year = 0; year < years; year++) {
+      for (let dinoFertility of Object.keys(dinoKids)) {
+        dinoKids[dinoFertility] *= parseInt(dinoFertility, 10) + 1;
+      }
+    }
+    
+    let total = 0;
+    for (let dinoFertility of Object.keys(dinoKids)) {
+      total += dinoKids[dinoFertility];
+    }
+    return total;
+  },
 };
 
 module.exports = Park;
