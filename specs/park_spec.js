@@ -42,19 +42,26 @@ describe('Park', function() {
     assert.strictEqual(park.getFertileDinosaurs().length, 1);    
   });
 
-  it('should be able to calculate # dinos afte 1 year with 1 dino', function() {
+  it('should be able to calculate # dinos after 1 year with 1 dino', function() {
     park.add(dino1);
     assert.strictEqual(park.howManyDinosAfter(1), 3);
   });
 
-  it('should be able to calculate # dinos afte 2 years with 1 dino', function() {
+  it('should be able to calculate # dinos after 2 years with 1 dino', function() {
     park.add(dino1);
     assert.strictEqual(park.howManyDinosAfter(2), 9);
   });
 
-  it('should be able to calculate # dinos afte 2 years with 2 dinos', function() {
+  it('should be able to calculate # dinos after 2 years with 2 dinos', function() {
     park.add(dino1);
     park.add(dino1);
     assert.strictEqual(park.howManyDinosAfter(2), 18);
+  });
+
+  it('should be able to calculate # dinos after 4 years with 3 dinos', function() {
+    park.add(dino1);
+    park.add(dino1);
+    park.add(dino3);
+    assert.strictEqual(park.howManyDinosAfter(4), 787);
   });
 });

@@ -28,24 +28,21 @@ Park.prototype = {
   },
 
   howManyDinosAfter: function(years) {
-    let dinoKids = {};
+    let initialToGrowth = {};
     for (let dinosaur of this.enclosure) {
-      if (dinoKids.hasOwnProperty(dinosaur.offspring)) {
-        dinoKids[dinosaur.offspring]++;
+      if (initialToGrowth.hasOwnProperty(dinosaur.offspring)) {
+        initialToGrowth[dinosaur.offspring]++;
       } else {
-        dinoKids[dinosaur.offspring] = 1;
+        initialToGrowth[dinosaur.offspring] = 1;
       }
     }
 
-    for (let year = 0; year < years; year++) {
-      for (let dinoFertility of Object.keys(dinoKids)) {
-        dinoKids[dinoFertility] *= parseInt(dinoFertility, 10) + 1;
-      }
-    }
-    
     let total = 0;
-    for (let dinoFertility of Object.keys(dinoKids)) {
-      total += dinoKids[dinoFertility];
+    for (let initialString in initialToGrowth) {
+      let a = initialToGrowth[initialString];
+      let b = parseInt(initialString, 10) + 1;
+      let t = years;
+      total += a * (b ** t);
     }
     return total;
   },
