@@ -1,0 +1,22 @@
+{
+  "name": "jurassic_park",
+  "version": "1.0.0",
+  "description": "OO model of Jurassic Park",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha specs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/JamieSK/JSurassicPark.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JamieSK/JSurassicPark/issues"
+  },
+  "homepage": "https://github.com/JamieSK/JSurassicPark#readme",
+  "devDependencies": {
+    "mocha": "^4.0.1"
+  }
+}
